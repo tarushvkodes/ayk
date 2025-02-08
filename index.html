@@ -5,79 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AYK Productions</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+        /* General Reset */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        header {
-            background-color: #333;
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
             color: #fff;
-            padding: 10px 0;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
         }
+
+        /* Container Styling */
         .container {
-            width: 80%;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        h1 {
             text-align: center;
+            animation: fadeIn 2s ease-in-out;
         }
+
+        /* Header Styling */
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-out;
+        }
+
+        /* Link Styling */
         .links {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            flex-direction: column;
+            gap: 15px;
+            animation: fadeIn 2s ease-in-out;
         }
+
         .link {
-            width: 30%;
-            margin: 10px 0;
-            text-align: center;
-        }
-        .link img {
-            width: 100%;
-            border-radius: 8px;
-        }
-        .link a {
-            display: block;
-            margin-top: 10px;
+            position: relative;
+            display: inline-block;
+            font-size: 1.5rem;
             text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #333;
             color: #fff;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            padding: 10px 20px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .link:hover {
+            background-color: #fff;
+            color: #121212;
+            transform: scale(1.1);
+        }
+
+        .link::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background-color: #fff;
+            transition: all 0.3s ease;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+        }
+
+        .link:hover::before {
+            width: 0;
+            height: 0;
+        }
+
+        /* Footer Styling */
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.8rem;
+            color: #fff;
+            animation: slideIn 1s ease-out;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(50px);
+            }
+            100% {
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>AYK Productions</h1>
-    </header>
     <div class="container">
-        <h2>Explore Our Music</h2>
+        <h1>AYK Productions</h1>
         <div class="links">
-            <div class="link">
-                <img src="https://ar.toneden.io/76746040/7c588c5e-86cb-43f6-bc33-90d32c913fc6" alt="AYK Productions">
-                <a href="https://acherecordings.fanlink.tv/aykproductions">AYK Productions</a>
-            </div>
-            <div class="link">
-                <img src="https://ar.toneden.io/76746040/7c588c5e-86cb-43f6-bc33-90d32c913fc6" alt="AYK Productions">
-                <a href="https://acherecordings.fanlink.tv/aykproductions">AYK Productions</a>
-            </div>
-            <div class="link">
-                <img src="https://ar.toneden.io/76746040/7c588c5e-86cb-43f6-bc33-90d32c913fc6" alt="AYK Productions">
-                <a href="https://acherecordings.fanlink.tv/aykproductions">AYK Productions</a>
-            </div>
+            <a href="https://music.apple.com/us/artist/ayk/1783530020" class="link">Apple Music</a>
+            <a href="https://open.spotify.com/artist/2vgijoIk5x4zHbFW2gtvko?si=tyG2ZxMxTp-eZujfSQloeQ" class="link">Spotify</a>
+            <a href="https://www.instagram.com/aykproductions_/" class="link">Instagram</a>
+            <a href="https://www.youtube.com/@ayk-ache" class="link">YouTube</a>
+            <a href="https://x.com/AcheRecordings" class="link">X</a>
         </div>
     </div>
     <footer>

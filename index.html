@@ -15,7 +15,9 @@
         /* Body Styling */
         body {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background-color: #121212;
+            background-image: url('aykbkgrd.jpeg'); /* Background image */
+            background-size: cover; /* Ensure the image covers the entire screen */
+            background-position: center; /* Center the image */
             color: #fff;
             display: flex;
             justify-content: center;
@@ -24,6 +26,19 @@
             margin: 0;
             overflow: hidden;
             flex-direction: column;
+            position: relative;
+        }
+
+        /* Dark overlay */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Darkens the background */
+            z-index: -1; /* Makes sure the overlay stays behind the content */
         }
 
         /* Logo Styling */
@@ -60,7 +75,7 @@
             color: #fff;
             padding: 10px 20px;
             border: 2px solid #fff;
-            border-radius: 5px;
+            border-radius: 0; /* Sharp corners (remove border-radius) */
             overflow: hidden;
             transition: all 0.3s ease;
         }
@@ -123,14 +138,14 @@
     <img src="ayklogo.png" alt="AYK Productions Logo" class="logo">
     <h1>ayk</h1>
     <div class="links">
-        <a href="https://music.apple.com/us/artist/ayk/1783530020" class="link">APPLE MUSIC</a>
-        <a href="https://open.spotify.com/artist/2vgijoIk5x4zHbFW2gtvko?si=tyG2ZxMxTp-eZujfSQloeQ" class="link">SPOTIFY</a>
-        <a href="https://www.instagram.com/aykproductions_/" class="link">INSTAGRAM</a>
-        <a href="https://www.youtube.com/@ayk-ache" class="link">YOUTUBE</a>
+        <a href="https://music.apple.com/us/artist/ayk/1783530020" class="link">Apple Music</a>
+        <a href="https://open.spotify.com/artist/2vgijoIk5x4zHbFW2gtvko?si=tyG2ZxMxTp-eZujfSQloeQ" class="link">Spotify</a>
+        <a href="https://www.instagram.com/aykproductions_/" class="link">Instagram</a>
+        <a href="https://www.youtube.com/@ayk-ache" class="link">YouTube</a>
         <a href="https://x.com/AcheRecordings" class="link">X</a>
     </div>
     <footer>
-        <p>&copy; 2025 ayk Productions</p>
+        <p>&copy; 2025 ACHE RECORDINGS</p>
     </footer>
 </body>
 </html>

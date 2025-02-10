@@ -17,7 +17,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         /* Video Background Styling */
         #bgVideo {
             position: absolute;
@@ -28,11 +28,21 @@
             object-fit: cover;
             z-index: -2; /* Place the video behind the overlay and content */
         }
-        
+
+        /* Overlay Styling */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Darkens the background */
+            z-index: -1; /* Sits above the video but below the content */
+        }
+
         /* Body Styling */
         body {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            /* Removed background-image properties since we are using a video */
             color: #fff;
             display: flex;
             justify-content: center;
@@ -43,56 +53,34 @@
             flex-direction: column;
             position: relative;
         }
-        
-        /* Dark overlay */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Darkens the background */
-            z-index: -1; /* Sits above the video but below the content */
+
+        /* Content Styling */
+        .content {
+            position: relative;
+            z-index: 1; /* Ensures content is above the overlay */
+            text-align: center;
         }
-        
+
         /* Logo Styling */
         .logo {
             width: 100px; /* Adjust the width as needed */
             height: auto;
             margin-bottom: 20px;
-            animation: fadeIn 2s ease-in-out;
         }
-        
+
         /* Header Styling */
         h1 {
             font-size: 3rem;
             margin-bottom: 20px;
-            animation: slideIn 1s ease-out;
         }
-        
-        /* Play/Mute Button Styling */
-        .button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 1;
-            text-transform: uppercase; /* Ensures text is displayed in uppercase */
-        }
-        
+
         /* Link Styling */
         .links {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            animation: fadeIn 2s ease-in-out;
         }
-        
+
         .link {
             position: relative;
             display: flex;
@@ -108,13 +96,13 @@
             overflow: hidden;
             transition: all 0.3s ease;
         }
-        
+
         .link:hover {
             background-color: #fff;
             color: #121212;
             transform: scale(1.1);
         }
-        
+
         .link::before {
             content: '';
             position: absolute;
@@ -127,30 +115,18 @@
             border-radius: 50%;
             transform: translate(-50%, -50%) scale(0);
         }
-        
+
         .link:hover::before {
             width: 0;
             height: 0;
         }
-        
+
         /* Footer Styling */
         footer {
             position: absolute;
             bottom: 20px;
             font-size: 0.8rem;
             color: #fff;
-            animation: slideIn 1s ease-out;
-        }
-        
-        /* Keyframe Animations */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        
-        @keyframes slideIn {
-            0% { transform: translateY(50px); }
-            100% { transform: translateY(0); }
         }
     </style>
 </head>
@@ -160,30 +136,33 @@
         <source src="aykbkrd.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    
-    <!-- Play Music Button -->
-    <button class="button" id="playButton" onclick="playAudio()">PLAY</button>
-    
-    <!-- Include the AYK logo -->
-    <img src="ayklogo.png" alt="AYK Productions Logo" class="logo">
-    <h1>ayk</h1>
-    <div class="links">
-        <a href="https://music.apple.com/us/artist/ayk/1783530020" class="link" target="_blank" rel="noopener noreferrer">APPLE MUSIC</a>
-        <a href="https://open.spotify.com/artist/2vgijoIk5x4zHbFW2gtvko?si=tyG2ZxMxTp-eZujfSQloeQ" class="link" target="_blank" rel="noopener noreferrer">SPOTIFY</a>
-        <a href="https://www.instagram.com/aykproductions_/" class="link" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
-        <a href="https://www.youtube.com/@ayk-ache" class="link" target="_blank" rel="noopener noreferrer">YOUTUBE</a>
-        <a href="https://x.com/AcheRecordings" class="link" target="_blank" rel="noopener noreferrer">X</a>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Content -->
+    <div class="content">
+        <!-- Include the AYK logo -->
+        <img src="ayklogo.png" alt="AYK Productions Logo" class="logo">
+        <h1>ayk</h1>
+        <div class="links">
+            <a href="https://music.apple.com/us/artist/ayk/1783530020" class="link" target="_blank" rel="noopener noreferrer">APPLE MUSIC</a>
+            <a href="https://open.spotify.com/artist/2vgijoIk5x4zHbFW2gtvko?si=tyG2ZxMxTp-eZujfSQloeQ" class="link" target="_blank" rel="noopener noreferrer">SPOTIFY</a>
+            <a href="https://www.instagram.com/aykproductions_/" class="link" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+            <a href="https://www.youtube.com/@ayk-ache" class="link" target="_blank" rel="noopener noreferrer">YOUTUBE</a>
+            <a href="https://x.com/AcheRecordings" class="link" target="_blank" rel="noopener noreferrer">X</a>
+        </div>
+        <footer>
+            <p>&copy; 2025 ACHE RECORDINGS</p>
+        </footer>
     </div>
-    <footer>
-        <p>&copy; 2025 ACHE RECORDINGS</p>
-    </footer>
-    
+
     <!-- Audio Element -->
     <audio id="backgroundAudio" loop>
         <source src="background_music.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
-    
+
     <script>
         // Function to play the audio and replace the Play button with a Mute button
         function playAudio() {
@@ -194,25 +173,11 @@
             muteButton.id = 'muteButton';
             muteButton.textContent = 'MUTE';
             muteButton.onclick = function () { toggleMute(); };
-    
+
             // Play the audio
             audio.play();
             // Replace play button with mute button
             playButton.replaceWith(muteButton);
         }
-    
-        // Function to toggle mute/unmute
-        function toggleMute() {
-            var audio = document.getElementById('backgroundAudio');
-            var button = document.getElementById('muteButton');
-            if (audio.muted) {
-                audio.muted = false;
-                button.textContent = 'MUTE';
-            } else {
-                audio.muted = true;
-                button.textContent = 'UNMUTE';
-            }
-        }
-    </script>
-</body>
-</html>
+
+        // 

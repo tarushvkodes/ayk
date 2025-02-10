@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KSXMKV4894"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -17,7 +19,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-    
+        
         /* Video Background Styling */
         #bgVideo {
             position: absolute;
@@ -26,9 +28,9 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: -2; /* Place the video behind overlay and content */
+            z-index: -2; /* Place the video behind the overlay and content */
         }
-    
+        
         /* Body Styling */
         body {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -43,7 +45,7 @@
             flex-direction: column;
             position: relative;
         }
-    
+        
         /* Dark overlay */
         body::before {
             content: '';
@@ -53,9 +55,9 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5); /* Darkens the background */
-            z-index: -1; /* Sits above the video but below content */
+            z-index: -1; /* Sits above the video but below the content */
         }
-    
+        
         /* Logo Styling */
         .logo {
             width: 100px; /* Adjust the width as needed */
@@ -63,14 +65,14 @@
             margin-bottom: 20px;
             animation: fadeIn 2s ease-in-out;
         }
-    
+        
         /* Header Styling */
         h1 {
             font-size: 3rem;
             margin-bottom: 20px;
             animation: slideIn 1s ease-out;
         }
-    
+        
         /* Play/Mute Button Styling */
         .button {
             position: absolute;
@@ -84,7 +86,7 @@
             z-index: 1;
             text-transform: uppercase; /* Ensures text is displayed in uppercase */
         }
-    
+        
         /* Link Styling */
         .links {
             display: flex;
@@ -92,7 +94,7 @@
             gap: 15px;
             animation: fadeIn 2s ease-in-out;
         }
-    
+        
         .link {
             position: relative;
             display: flex;
@@ -108,13 +110,13 @@
             overflow: hidden;
             transition: all 0.3s ease;
         }
-    
+        
         .link:hover {
             background-color: #fff;
             color: #121212;
             transform: scale(1.1);
         }
-    
+        
         .link::before {
             content: '';
             position: absolute;
@@ -127,12 +129,12 @@
             border-radius: 50%;
             transform: translate(-50%, -50%) scale(0);
         }
-    
+        
         .link:hover::before {
             width: 0;
             height: 0;
         }
-    
+        
         /* Footer Styling */
         footer {
             position: absolute;
@@ -141,13 +143,13 @@
             color: #fff;
             animation: slideIn 1s ease-out;
         }
-    
+        
         /* Keyframe Animations */
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
-    
+        
         @keyframes slideIn {
             0% { transform: translateY(50px); }
             100% { transform: translateY(0); }
